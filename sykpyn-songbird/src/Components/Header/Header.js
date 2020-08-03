@@ -1,27 +1,27 @@
 import React from "react";
 import "./header.css";
-import Header_item from "./Header-item/Header-item";
+import HeaderItem from "./HeaderItem/HeaderItem";
 
 const Header = () => {
   return (
     <div className="header_main">
       <div className="header_main_item first">
-        <Header_item species="Разминка" />
+        <HeaderItem species="Разминка" />
       </div>
       <div className="header_main_item">
-        <Header_item species="Воробьиные" />
+        <HeaderItem species="Воробьиные" />
       </div>
       <div className="header_main_item">
-        <Header_item species="Лесные птицы" />
+        <HeaderItem species="Лесные птицы" />
       </div>
       <div className="header_main_item">
-        <Header_item species="Певчие птицы" />
+        <HeaderItem species="Певчие птицы" />
       </div>
       <div className="header_main_item">
-        <Header_item species="Хищные птицы" />
+        <HeaderItem species="Хищные птицы" />
       </div>
       <div className="header_main_item last">
-        <Header_item species="Морские птицы" />
+        <HeaderItem species="Морские птицы" />
       </div>
     </div>
   );

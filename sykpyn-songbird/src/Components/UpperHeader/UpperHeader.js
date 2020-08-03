@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./upper-header.css";
+import "./UpperHeader.css";
 
-class Upper_header extends Component {
+class UpperHeader extends Component {
   render() {
     return (
       <div className="upper_header">
@@ -12,4 +12,4 @@ class Upper_header extends Component {
   }
 }
 
-export default Upper_header;
+export default UpperHeader;

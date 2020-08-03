@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Fragment } from "react";
 import Header from "../Header/Header";
-import Upper_header from "../Upper-header/Upper-header";
+import UpperHeader from "../UpperHeader/UpperHeader";
+import GameSection from '../GameSection/GameSection'
 import "./main.css";
 
 class Main extends Component {
@@ -10,8 +11,9 @@ class Main extends Component {
       <Fragment>
         <div className="main_container">
           <div className="main_wrapper">
-            <Upper_header />
+            <UpperHeader />
             <Header />
+            <GameSection />
           </div>
         </div>
       </Fragment>
