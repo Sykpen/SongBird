@@ -1,0 +1,23 @@
+.header_main {
+  display: flex;
+  justify-content: space-between;
+  width: 1110px;
+  background-color: #008966;
+  height: 35px;
+  color: white;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.header_main_item {
+  flex: auto;
+  cursor: pointer;
+}
+
+.first {
+  padding-left: 46px;
+}
+
+.active {
+  background-color: #00bc8c;
+}
