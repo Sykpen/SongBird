@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header';
 
 class Main extends Component {
   render() {
-    return <h1>Повторение - мать учения!!!</h1>
+    return (
+    <Header />
+    )
   }
 }
 export default Main; 
