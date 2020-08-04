@@ -1,0 +1,38 @@
+.options_block_main {
+  width: auto;
+  max-width: 540px;
+  height: 284px;
+  border-radius: 5px;
+  border-collapse: collapse;
+  /* border: 1px solid #444444; */
+}
+
+.options_block_main_item {
+  height: 46px;
+  border: 2px solid #444444;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: white;
+  cursor: pointer;
+}
+
+.options_block_main_item + .options_block_main_item {
+  margin: -2px 0;
+}
+
+.circle {
+  margin-left: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #444444;
+}
+
+.options_block_main_item_bird {
+  margin-left: 15px;
+}
+
+.red {
+  background-color: red;
+}
