@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Fragment } from "react";
 import Header from "../Header/Header";
 import UpperHeader from "../UpperHeader/UpperHeader";
-import GameSection from '../GameSection/GameSection'
+import GameSection from '../GameSection/GameSection';
+import OptionsBlock from '../OptionsBlock/OptionsBlock';
 import "./main.css";
 import Button from "../Button/Button";
 
@@ -15,6 +16,7 @@ class Main extends Component {
             <UpperHeader />
             <Header />
             <GameSection />
+            <OptionsBlock />     
             <Button />
           </div>
         </div>
