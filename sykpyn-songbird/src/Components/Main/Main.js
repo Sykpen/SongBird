@@ -5,6 +5,7 @@ import UpperHeader from "../UpperHeader/UpperHeader";
 import GameSection from '../GameSection/GameSection';
 import OptionsBlock from '../OptionsBlock/OptionsBlock';
 import "./main.css";
+import Button from "../Button/Button";
 
 class Main extends Component {
   render() {
@@ -15,7 +16,8 @@ class Main extends Component {
             <UpperHeader />
             <Header />
             <GameSection />
-            <OptionsBlock />
+            <OptionsBlock />     
+            <Button />
           </div>
         </div>
       </Fragment>
