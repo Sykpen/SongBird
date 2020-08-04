@@ -4,12 +4,14 @@
 }
 
 .main_container {
-  width: 1250px;
+  width: auto;
+  max-width: 1250px;
   height: 755px;
   background-color: #222222;
 }
 
 .main_wrapper {
-  width: 1100px;
+  width: auto;
+  max-width: 1100px;
   margin: 0 auto;
 }

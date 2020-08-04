@@ -1,9 +1,11 @@
 .header_main {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  width: 1110px;
+  width: auto;
   background-color: #008966;
-  height: 35px;
+  height: auto;
+  min-height: 35px;
   color: white;
   border-radius: 5px;
   align-items: center;
