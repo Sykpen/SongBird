@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Fragment } from "react";
 import Header from "../Header/Header";
 import UpperHeader from "../UpperHeader/UpperHeader";
-import GameSection from '../GameSection/GameSection';
-import OptionsBlock from '../OptionsBlock/OptionsBlock';
+import GameSection from "../GameSection/GameSection";
+import OptionsBlock from "../OptionsBlock/OptionsBlock";
+import InfoBlock from "../InfoBlock/InfoBlock";
 import "./main.css";
 import Button from "../Button/Button";
 
@@ -16,7 +17,10 @@ class Main extends Component {
             <UpperHeader />
             <Header />
             <GameSection />
-            <OptionsBlock />     
+            <div className="main_flex">
+              <OptionsBlock />
+              <InfoBlock />
+            </div>
             <Button />
           </div>
         </div>
