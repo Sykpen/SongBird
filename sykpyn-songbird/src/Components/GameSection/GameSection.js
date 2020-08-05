@@ -6,7 +6,7 @@ class GameSection extends Component {
     return (
       <div className="game_section">
         <div className="game_section_img"></div>
-        <div>
+        <div className="game_section_item_second">
           <p className="game_section_text">То что выберет игрок</p>
           <div>
             <audio src="../../sound/SCOTLAND.mp3" controls></audio>

@@ -1,12 +1,18 @@
 .game_section {
   margin-top: 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  background-color: #303030;
+  margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 .game_section_img {
+  box-sizing: border-box;
+  margin: 15px;
+  border-radius: 10px;
   background-image: url("https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg");
   width: 200px;
   height: 155px;
@@ -14,8 +20,20 @@
   background-repeat: no-repeat;
 }
 
+/* .game_section_item_second{
+
+} */
+
 .game_section_text {
   font-weight: bold;
   font-size: 32px;
   color: white;
+  border-bottom: 2px solid #444444;
+  margin: 12px;
+}
+
+@media all and (max-width: 740px) {
+  .game_section {
+    justify-content: center;
+  }
 }

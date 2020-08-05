@@ -6,7 +6,7 @@ class UpperHeader extends Component {
     return (
       <div className="upper_header">
         <div className="logo"></div>
-        <div>Score</div>
+        <div className="score">Score</div>
       </div>
     );
   }

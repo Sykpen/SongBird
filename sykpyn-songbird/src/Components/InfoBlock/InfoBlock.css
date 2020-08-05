@@ -1,6 +1,7 @@
 .infoBlock_main {
   box-sizing: border-box;
   width: 540px;
+  height: auto;
   background-color: #303030;
   border: 2px solid #444444;
   color: white;
@@ -9,6 +10,7 @@
 
 .infoBlock_flex {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -33,4 +35,25 @@
 
 .infoBlock_audio {
   width: 265px;
+}
+
+@media all and (max-width: 1200px) {
+  .infoBlock_main {
+    width: 450px;
+  }
+}
+
+@media all and (max-width: 960px) {
+  .infoBlock_main {
+    width: 330px;
+  }
+  .infoBlock_flex {
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 740px) {
+  .infoBlock_main {
+    width: 510px;
+  }
 }
