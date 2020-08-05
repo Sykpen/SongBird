@@ -4,41 +4,18 @@ import "./OptionsBlock.css";
 
 class OptionsBlock extends Component {
   render() {
-    const { data, counter, update } = this.props;
-    return (
-      <div className="options_block_main">
+    const { data, update } = this.props;
+    const rows = [];
+    for (let i = 0; i <= 5; i++) {
+      rows.push(
         <OptionsBlockItem
-          birdName={data[counter][0].name}
+          birdName={data[i].name}
           update={update}
-          position={0}
+          position={i}
         />
-        <OptionsBlockItem
-          birdName={data[counter][1].name}
-          update={update}
-          position={1}
-        />
-        <OptionsBlockItem
-          birdName={data[counter][2].name}
-          update={update}
-          position={2}
-        />
-        <OptionsBlockItem
-          birdName={data[counter][3].name}
-          update={update}
-          position={3}
-        />
-        <OptionsBlockItem
-          birdName={data[counter][4].name}
-          update={update}
-          position={4}
-        />
-        <OptionsBlockItem
-          birdName={data[counter][5].name}
-          update={update}
-          position={5}
-        />
-      </div>
-    );
+      );
+    }
+    return <div className="options_block_main">{rows}</div>;
   }
 }
 

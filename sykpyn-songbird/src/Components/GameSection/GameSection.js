@@ -7,15 +7,12 @@ class GameSection extends Component {
     return (
       <div className="game_section">
         <div>
-          <img
-            className="game_section_img"
-            src={data[counter][position].image}
-          ></img>
+          <img className="game_section_img" src={data[position].image}></img>
         </div>
         <div className="game_section_item_second">
-          <p className="game_section_text">{data[counter][position].name}</p>
+          <p className="game_section_text">{data[position].name}</p>
           <div>
-            <audio src={data[counter][position].audio} controls></audio>
+            <audio src={data[position].audio} controls></audio>
           </div>
         </div>
       </div>

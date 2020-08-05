@@ -3,9 +3,9 @@ import "./Button.css";
 
 class Button extends Component {
   render() {
-    const { update } = this.props;
+    const { update_counter } = this.props;
     return (
-      <button className="button" onClick={update}>
+      <button className="button" onClick={update_counter}>
         Next Level
       </button>
     );
