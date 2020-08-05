@@ -47,23 +47,26 @@ class Main extends Component {
             <UpperHeader />
             <Header />
             <GameSection
-              data={data[counter]}
-              counter={counter}
-              position={position_in_array}
+              image={data[counter][position_in_array].image}
+              name={data[counter][position_in_array].name}
+              audio={data[counter][position_in_array].audio}
             />
             <div className="main_flex">
               <OptionsBlock
-                data={data[counter]}
-                counter={counter}
-                update={this.updatePosition}
+                names={data[counter]}
+                updatePosition={this.updatePosition}
               />
               <InfoBlock
-                data={data[counter]}
+                image={data[counter][position_in_array].image}
+                name={data[counter][position_in_array].name}
+                audio={data[counter][position_in_array].audio}
+                species={data[counter][position_in_array].species}
+                description={data[counter][position_in_array].description}
                 counter={counter}
                 position={position_in_array}
               />
             </div>
-            <Button counter={counter} update_counter={this.updateCounter} />
+            <Button counter={counter} updateCounter={this.updateCounter} />
           </div>
         </div>
       </Fragment>

@@ -13,12 +13,12 @@ class OptionsBlockItem extends Component {
     }));
   }
   render() {
-    const { birdName, update } = this.props;
+    const { birdName, updatePosition } = this.props;
     return (
       <div
         className="options_block_main_item"
         onClick={this.handleClick}
-        onClick={() => update(this.props.position)}
+        onClick={() => updatePosition(this.props.position)}
       >
         <div className={this.state.isToggleOn ? "circle" : "circle red"}></div>
         <div className="options_block_main_item_bird">{birdName}</div>

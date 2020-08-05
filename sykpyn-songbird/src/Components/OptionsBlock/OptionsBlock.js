@@ -4,13 +4,13 @@ import "./OptionsBlock.css";
 
 class OptionsBlock extends Component {
   render() {
-    const { data, update } = this.props;
+    const { names, updatePosition } = this.props;
     const rows = [];
     for (let i = 0; i <= 5; i++) {
       rows.push(
         <OptionsBlockItem
-          birdName={data[i].name}
-          update={update}
+          birdName={names[i].name}
+          updatePosition={updatePosition}
           position={i}
         />
       );
