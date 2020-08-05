@@ -15,11 +15,11 @@
 }
 
 .infoBlock_img {
-  background-image: url("https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg");
+  /* background-image: url("https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg"); */
   width: 200px;
   height: 155px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  /* background-size: contain;
+  background-repeat: no-repeat; */
 }
 
 .infoBlock_bird_name {

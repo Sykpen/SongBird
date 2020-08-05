@@ -3,7 +3,12 @@ import "./Button.css";
 
 class Button extends Component {
   render() {
-    return <button className="button">Next Level</button>;
+    const { update } = this.props;
+    return (
+      <button className="button" onClick={update}>
+        Next Level
+      </button>
+    );
   }
 }
 

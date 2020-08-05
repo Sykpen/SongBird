@@ -3,25 +3,31 @@ import "./InfoBlock.css";
 
 class InfoBlock extends Component {
   render() {
+    const { data, counter, position } = this.props;
     return (
       <div className="infoBlock_main">
         <div className="infoBlock_flex">
-          <div className="infoBlock_img"></div>
+          <div>
+            <img
+              className="infoBlock_img"
+              src={data[counter][position].image}
+            ></img>
+          </div>
           <div className="infoBlock_main_item_second">
-            <p className="infoBlock_bird_specias">Птица</p>
-            <p className="infoBlock_bird_name">Название птицы</p>
-            <audio controls className="infoBlock_audio"></audio>
+            <p className="infoBlock_bird_specias">
+              {data[counter][position].name}
+            </p>
+            <p className="infoBlock_bird_name">
+              {data[counter][position].species}
+            </p>
+            <audio
+              controls
+              className="infoBlock_audio"
+              src={data[counter][position].audio}
+            ></audio>
           </div>
         </div>
-        <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."
-        </p>
+        <p>{data[counter][position].description}</p>
       </div>
     );
   }
