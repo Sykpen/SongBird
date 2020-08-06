@@ -6,16 +6,17 @@ import GameSection from "../GameSection/GameSection";
 import OptionsBlock from "../OptionsBlock/OptionsBlock";
 import InfoBlock from "../InfoBlock/InfoBlock";
 import "./main.css";
-import Button from "../Button/Button";
+import NextButton from "../Button/Button";
 import birdsData from "../../data/birds";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: birdsData,
       counter: 0,
-      position_in_array: 0,
+      data: birdsData,
+      currentPosition: 0,
+      // questionNumber: 0,
     };
     this.updateCounter = this.updateCounter.bind(this);
     this.updatePosition = this.updatePosition.bind(this);
@@ -24,22 +25,25 @@ class Main extends Component {
   updateCounter() {
     this.setState((state) => ({
       counter: state.counter + 1,
+      // questionNumber: state.questionNumber + 1,
     }));
     if (this.state.counter === 5) {
+      this.setState((state) => ({
+        counter: 0,
+      }))
       console.log("Выводим экран конца игры");
     }
-    console.log(this.state.counter);
   }
 
   updatePosition(position) {
     this.setState((state) => ({
-      position_in_array: position,
+      currentPosition: position,
     }));
-    console.log(this.state.position_in_array);
   }
 
   render() {
-    const { data, counter, position_in_array } = this.state;
+    const { data, counter, currentPosition } = this.state;
+    const birdData = data[counter][currentPosition];
     return (
       <Fragment>
         <div className="main_container">
@@ -47,26 +51,25 @@ class Main extends Component {
             <UpperHeader />
             <Header />
             <GameSection
-              image={data[counter][position_in_array].image}
-              name={data[counter][position_in_array].name}
-              audio={data[counter][position_in_array].audio}
+              image={birdData.image}
+              name={birdData.name}
+              audio={birdData.audio}
             />
             <div className="main_flex">
               <OptionsBlock
-                names={data[counter]}
+              // birdNames={data}
+                birdNames={data[counter]}
                 updatePosition={this.updatePosition}
               />
               <InfoBlock
-                image={data[counter][position_in_array].image}
-                name={data[counter][position_in_array].name}
-                audio={data[counter][position_in_array].audio}
-                species={data[counter][position_in_array].species}
-                description={data[counter][position_in_array].description}
-                counter={counter}
-                position={position_in_array}
+                image={birdData.image}
+                name={birdData.name}
+                audio={birdData.audio}
+                species={birdData.species}
+                description={birdData.description}
               />
             </div>
-            <Button counter={counter} updateCounter={this.updateCounter} />
+            <NextButton updateCurrentStep={this.updateCounter} />
           </div>
         </div>
       </Fragment>

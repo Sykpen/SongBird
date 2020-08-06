@@ -7,7 +7,7 @@ class GameSection extends Component {
     return (
       <div className="game_section">
         <div>
-          <img className="game_section_img" src={image}></img>
+          <img className="game_section_img" src={image} alt='Птица'></img>
         </div>
         <div className="game_section_item_second">
           <p className="game_section_text">{name}</p>

@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import "./Button.css";
 
-class Button extends Component {
+class NextButton extends Component {
   render() {
-    const { updateCounter } = this.props;
+    const { updateCurrentStep } = this.props;
     return (
-      <button className="button" onClick={updateCounter}>
+      <button className="button" onClick={updateCurrentStep}>
         Next Level
       </button>
     );
   }
 }
 
-export default Button;
+export default NextButton;

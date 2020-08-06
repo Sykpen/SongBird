@@ -8,7 +8,7 @@ class InfoBlock extends Component {
       <div className="infoBlock_main">
         <div className="infoBlock_flex">
           <div>
-            <img className="infoBlock_img" src={image}></img>
+            <img className="infoBlock_img" src={image} alt='Птица'></img>
           </div>
           <div className="infoBlock_main_item_second">
             <p className="infoBlock_bird_specias">{name}</p>
