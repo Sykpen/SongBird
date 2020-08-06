@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./main.css";
 import birdsData from "../../data/birds";
-import GameScrin from "../GameScrin/GameScrin";
+import GameScreen from "../GameScreen/GameScreen";
 
 class Main extends Component {
   constructor(props) {
@@ -35,11 +35,12 @@ class Main extends Component {
   }
 
   render() {
+    const { questionNumber, currentPosition } = this.state;
     return (
-      <GameScrin
-        data={birdsData[this.state.questionNumber]}
-        currentPosition={this.state.currentPosition}
-        questionNumber={this.state.questionNumber}
+      <GameScreen
+        data={birdsData[questionNumber]}
+        currentPosition={currentPosition}
+        questionNumber={questionNumber}
         updateCurrentStep={this.updateCounter}
         updatePosition={this.updatePosition}
       />

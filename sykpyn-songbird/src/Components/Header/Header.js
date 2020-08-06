@@ -2,26 +2,32 @@ import React from "react";
 import "./header.css";
 import HeaderItem from "./HeaderItem/HeaderItem";
 
-const Header = ({ counter }) => {
+const Header = ({ questionNumber }) => {
   return (
     <div className="header_main">
-      <HeaderItem species="Разминка" active={counter === 0 ? true : false} />
-      <HeaderItem species="Воробьиные" active={counter === 1 ? true : false} />
+      <HeaderItem
+        species="Разминка"
+        active={questionNumber === 0 ? true : false}
+      />
+      <HeaderItem
+        species="Воробьиные"
+        active={questionNumber === 1 ? true : false}
+      />
       <HeaderItem
         species="Лесные птицы"
-        active={counter === 2 ? true : false}
+        active={questionNumber === 2 ? true : false}
       />
       <HeaderItem
         species="Певчие птицы"
-        active={counter === 3 ? true : false}
+        active={questionNumber === 3 ? true : false}
       />
       <HeaderItem
         species="Хищные птицы"
-        active={counter === 4 ? true : false}
+        active={questionNumber === 4 ? true : false}
       />
       <HeaderItem
         species="Морские птицы"
-        active={counter === 5 ? true : false}
+        active={questionNumber === 5 ? true : false}
       />
     </div>
   );

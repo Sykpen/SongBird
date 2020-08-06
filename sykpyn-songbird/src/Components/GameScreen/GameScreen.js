@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import Header from "../Header/Header";
 import UpperHeader from "../UpperHeader/UpperHeader";
 import GameSection from "../GameSection/GameSection";
@@ -23,7 +22,7 @@ class GameScrin extends Component {
         <div className="main_container">
           <div className="main_wrapper">
             <UpperHeader />
-            <Header counter={questionNumber} />
+            <Header questionNumber={questionNumber} />
             <GameSection
               image={birdData.image}
               name={birdData.name}
