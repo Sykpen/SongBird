@@ -7,7 +7,11 @@ import InfoBlock from "../InfoBlock/InfoBlock";
 import "../Main/main.css";
 import NextButton from "../Button/Button";
 
-class GameScrin extends Component {
+class GameScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     const {
       data,
@@ -16,6 +20,12 @@ class GameScrin extends Component {
       updateCurrentStep,
       updatePosition,
     } = this.props;
+    if (!this.state.rightAnswer) {
+      this.setState((state) => ({
+        rightAnswer: this.props.rightAnswer,
+      }));
+    }
+    console.log(this.state.rightAnswer);
     const birdData = data[currentPosition];
     return (
       <Fragment>
@@ -29,7 +39,11 @@ class GameScrin extends Component {
               audio={birdData.audio}
             />
             <div className="main_flex">
-              <OptionsBlock birdNames={data} updatePosition={updatePosition} />
+              <OptionsBlock
+                birdNames={data}
+                updatePosition={updatePosition}
+                rightAnswer={this.state.rightAnswer}
+              />
               <InfoBlock
                 image={birdData.image}
                 name={birdData.name}
@@ -46,4 +60,4 @@ class GameScrin extends Component {
   }
 }
 
-export default GameScrin;
+export default GameScreen;

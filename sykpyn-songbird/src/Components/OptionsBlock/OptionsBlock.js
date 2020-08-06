@@ -4,7 +4,7 @@ import "./OptionsBlock.css";
 
 class OptionsBlock extends Component {
   render() {
-    const { birdNames, updatePosition } = this.props;
+    const { birdNames, updatePosition, rightAnswer } = this.props;
     const rows = [];
     for (let i = 0; i <= 5; i++) {
       rows.push(
@@ -12,6 +12,8 @@ class OptionsBlock extends Component {
           birdName={birdNames[i].name}
           updatePosition={updatePosition}
           position={i}
+          birdId={birdNames[i].id}
+          rightAnswer={rightAnswer}
         />
       );
     }

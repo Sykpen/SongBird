@@ -19,7 +19,6 @@ class Main extends Component {
     this.setState((state) => ({
       questionNumber: state.questionNumber + 1,
     }));
-    console.log(this.state.questionNumber);
     if (this.state.questionNumber === 5) {
       this.setState((state) => ({
         questionNumber: 0,
@@ -36,6 +35,10 @@ class Main extends Component {
 
   render() {
     const { questionNumber, currentPosition } = this.state;
+    let item =
+      birdsData[questionNumber][
+        Math.floor(Math.random() * birdsData[questionNumber].length)
+      ];
     return (
       <GameScreen
         data={birdsData[questionNumber]}
@@ -43,6 +46,7 @@ class Main extends Component {
         questionNumber={questionNumber}
         updateCurrentStep={this.updateCounter}
         updatePosition={this.updatePosition}
+        rightAnswer={item.id}
       />
     );
   }
