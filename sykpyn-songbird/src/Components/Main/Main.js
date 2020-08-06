@@ -27,10 +27,11 @@ class Main extends Component {
       counter: state.counter + 1,
       // questionNumber: state.questionNumber + 1,
     }));
+    console.log(document.getElementsByClassName("header_main"));
     if (this.state.counter === 5) {
       this.setState((state) => ({
         counter: 0,
-      }))
+      }));
       console.log("Выводим экран конца игры");
     }
   }
@@ -49,7 +50,7 @@ class Main extends Component {
         <div className="main_container">
           <div className="main_wrapper">
             <UpperHeader />
-            <Header />
+            <Header counter={counter} />
             <GameSection
               image={birdData.image}
               name={birdData.name}
@@ -57,7 +58,7 @@ class Main extends Component {
             />
             <div className="main_flex">
               <OptionsBlock
-              // birdNames={data}
+                // birdNames={data}
                 birdNames={data[counter]}
                 updatePosition={this.updatePosition}
               />
