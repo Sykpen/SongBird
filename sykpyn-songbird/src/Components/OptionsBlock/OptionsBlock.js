@@ -4,20 +4,37 @@ import "./OptionsBlock.css";
 
 class OptionsBlock extends Component {
   render() {
-    const { birdNames, updatePosition, rightAnswer } = this.props;
+    const {
+      birdNames,
+      updatePosition,
+      rightAnswerId,
+      updateScore,
+      updateClickCounter,
+      clickCounter,
+    } = this.props;
     const rows = [];
-    for (let i = 0; i <= 5; i++) {
+    const numberOfAnswers = birdNames.length - 1;
+    birdNames.forEach((element) => {
       rows.push(
         <OptionsBlockItem
-          birdName={birdNames[i].name}
+          key={`${element.id}_${element.name}`}
+          birdName={element.name}
           updatePosition={updatePosition}
-          position={i}
-          birdId={birdNames[i].id}
-          rightAnswer={rightAnswer}
+          position={element.id - 1}
+          birdId={element.id}
+          rightAnswerId={rightAnswerId}
+          updateScore={updateScore}
+          numberOfAnswers={numberOfAnswers}
+          clickCounter={clickCounter}
         />
       );
-    }
-    return <div className="options_block_main">{rows}</div>;
+    });
+
+    return (
+      <div className="options_block_main" onClick={updateClickCounter}>
+        {rows}
+      </div>
+    );
   }
 }
 

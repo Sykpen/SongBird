@@ -10,7 +10,53 @@ import NextButton from "../Button/Button";
 class GameScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { score: 0, rightAnswerId: null, clickCounter: 0 };
+    this.generateWinningNumber = this.generateWinningNumber.bind(this);
+    this.updateScore = this.updateScore.bind(this);
+    this.updateRightAnswerId = this.updateRightAnswerId.bind(this);
+    this.updateClickCounter = this.updateClickCounter.bind(this);
+    this.refreshClickCounter = this.refreshClickCounter.bind(this);
+  }
+
+  generateWinningNumber() {
+    let item = this.props.data[
+      Math.floor(Math.random() * this.props.data.length)
+    ];
+    return item.id;
+  }
+
+  componentDidMount() {
+    if (!this.state.rightAnswerId) {
+      this.updateRightAnswerId();
+    }
+  }
+
+  updateRightAnswerId() {
+    this.setState((state) => ({
+      ...state,
+      rightAnswerId: this.generateWinningNumber(),
+    }));
+  }
+
+  updateScore(newScore) {
+    this.setState((state) => ({
+      ...state,
+      score: this.state.score + newScore,
+    }));
+  }
+
+  updateClickCounter() {
+    this.setState((state) => ({
+      ...state,
+      clickCounter: this.state.clickCounter + 1,
+    }));
+  }
+
+  refreshClickCounter() {
+    this.setState((state) => ({
+      ...state,
+      clickCounter: 0,
+    }));
   }
   render() {
     const {
@@ -20,18 +66,13 @@ class GameScreen extends Component {
       updateCurrentStep,
       updatePosition,
     } = this.props;
-    if (!this.state.rightAnswer) {
-      this.setState((state) => ({
-        rightAnswer: this.props.rightAnswer,
-      }));
-    }
-    console.log(this.state.rightAnswer);
+    const { score, clickCounter } = this.state;
     const birdData = data[currentPosition];
     return (
       <Fragment>
         <div className="main_container">
           <div className="main_wrapper">
-            <UpperHeader />
+            <UpperHeader score={score} />
             <Header questionNumber={questionNumber} />
             <GameSection
               image={birdData.image}
@@ -42,7 +83,10 @@ class GameScreen extends Component {
               <OptionsBlock
                 birdNames={data}
                 updatePosition={updatePosition}
-                rightAnswer={this.state.rightAnswer}
+                rightAnswerId={this.generateWinningNumber()}
+                updateScore={this.updateScore}
+                updateClickCounter={this.updateClickCounter}
+                clickCounter={clickCounter}
               />
               <InfoBlock
                 image={birdData.image}
@@ -52,7 +96,11 @@ class GameScreen extends Component {
                 description={birdData.description}
               />
             </div>
-            <NextButton updateCurrentStep={updateCurrentStep} />
+            <NextButton
+              updateCurrentStep={updateCurrentStep}
+              updateRightAnswerId={this.updateRightAnswerId}
+              refreshClickCounter={this.refreshClickCounter}
+            />
           </div>
         </div>
       </Fragment>

@@ -3,37 +3,57 @@ import React, { Component } from "react";
 class OptionsBlockItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: true };
-    this.handleClick = this.handleClick.bind(this);
-    this.changeColor = this.changeColor.bind(this);
+    this.state = {
+      rightAnswerId: null,
+    };
+    this.returnNeededColor = this.returnNeededColor.bind(this);
   }
 
-  handleClick() {
-    this.setState((state) => ({
-      isToggleOn: !state.isToggleOn,
-    }));
-  }
-
-  changeColor() {
-    if (this.props.birdId === this.props.rightAnswer) {
-      document.getElementById(`${this.props.birdId}`).classList.add("green");
-      console.log("win, дальше можно делать логику подебы с этого места");
+  returnNeededColor() {
+    if (this.state.color === "green") {
+      return "circle green";
     }
-    document.getElementById(`${this.props.birdId}`).classList.add("red");
+    if (this.state.color === "red") {
+      return "circle red";
+    } else {
+      return "circle";
+    }
   }
+
+  processAnswer() {
+    let color = this.isRightAnswer() ? "green" : "red";
+    this.setState((state) => ({
+      ...state,
+      color: color,
+    }));
+    if (this.isRightAnswer()) {
+      let amountOfUpdate = this.props.numberOfAnswers - this.props.clickCounter;
+      this.props.updateScore(Math.max(amountOfUpdate, 0));
+    }
+  }
+
+  isRightAnswer() {
+    return this.props.birdId === this.state.rightAnswerId;
+  }
+
   render() {
     const { birdName, updatePosition, position, birdId } = this.props;
+    if (this.state.rightAnswerId === null) {
+      this.setState((state) => ({
+        ...state,
+        rightAnswerId: this.props.rightAnswerId,
+      }));
+    }
     return (
       <div
         className="options_block_main_item"
         onClick={() => {
-          this.handleClick();
+          this.processAnswer();
+          this.returnNeededColor();
           updatePosition(position);
-          this.changeColor();
         }}
       >
-        {/* <div id={birdId} className={this.state.isToggleOn ? "circle" : "circle red"}></div> */}
-        <div id={birdId} className="circle"></div>
+        <div id={birdId} className={this.returnNeededColor()}></div>
         <div className="options_block_main_item_bird">{birdName}</div>
       </div>
     );

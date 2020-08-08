@@ -16,29 +16,27 @@ class Main extends Component {
   }
 
   updateCounter() {
-    this.setState((state) => ({
-      questionNumber: state.questionNumber + 1,
-    }));
+    let newState = this.state;
     if (this.state.questionNumber === 5) {
-      this.setState((state) => ({
-        questionNumber: 0,
-      }));
-      console.log("Выводим экран конца игры");
+      newState.questionNumber = 0;
+    } else {
+      newState.questionNumber += 1;
     }
+    this.setState((state) => ({
+      ...state,
+      questionNumber: newState.questionNumber,
+    }));
   }
 
   updatePosition(position) {
     this.setState((state) => ({
+      ...state,
       currentPosition: position,
     }));
   }
 
   render() {
     const { questionNumber, currentPosition } = this.state;
-    let item =
-      birdsData[questionNumber][
-        Math.floor(Math.random() * birdsData[questionNumber].length)
-      ];
     return (
       <GameScreen
         data={birdsData[questionNumber]}
@@ -46,7 +44,6 @@ class Main extends Component {
         questionNumber={questionNumber}
         updateCurrentStep={this.updateCounter}
         updatePosition={this.updatePosition}
-        rightAnswer={item.id}
       />
     );
   }
