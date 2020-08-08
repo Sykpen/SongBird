@@ -4,14 +4,35 @@ import "./OptionsBlock.css";
 
 class OptionsBlock extends Component {
   render() {
+    const {
+      birdNames,
+      updatePosition,
+      rightAnswerId,
+      updateScore,
+      updateClickCounter,
+      clickCounter,
+    } = this.props;
+    const rows = [];
+    const numberOfAnswers = birdNames.length - 1;
+    birdNames.forEach((element) => {
+      rows.push(
+        <OptionsBlockItem
+          key={`${element.id}_${element.name}`}
+          birdName={element.name}
+          updatePosition={updatePosition}
+          position={element.id - 1}
+          birdId={element.id}
+          rightAnswerId={rightAnswerId}
+          updateScore={updateScore}
+          numberOfAnswers={numberOfAnswers}
+          clickCounter={clickCounter}
+        />
+      );
+    });
+
     return (
-      <div className="options_block_main">
-        <OptionsBlockItem birdName="Птица 1" />
-        <OptionsBlockItem birdName="Птица 2" />
-        <OptionsBlockItem birdName="Птица 3" />
-        <OptionsBlockItem birdName="Птица 4" />
-        <OptionsBlockItem birdName="Птица 5" />
-        <OptionsBlockItem birdName="Птица 6" />
+      <div className="options_block_main" onClick={updateClickCounter}>
+        {rows}
       </div>
     );
   }

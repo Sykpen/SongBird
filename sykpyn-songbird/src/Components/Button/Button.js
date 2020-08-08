@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import "./Button.css";
 
-class Button extends Component {
+class NextButton extends Component {
   render() {
-    return <button className="button">Next Level</button>;
+    const { updateCurrentStep, updateRightAnswerId, refreshClickCounter } = this.props;
+    return (
+      <button className="button" onClick={()=> {updateCurrentStep(); updateRightAnswerId(); refreshClickCounter()}}>
+        Next Level
+      </button>
+    );
   }
 }
 
-export default Button;
+export default NextButton;

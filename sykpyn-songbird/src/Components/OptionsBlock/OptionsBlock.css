@@ -37,6 +37,10 @@
   background-color: red;
 }
 
+.green {
+  background-color: lawngreen;
+}
+
 @media all and (max-width: 1200px) {
   .options_block_main {
     width: 450px;
