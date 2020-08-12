@@ -11,6 +11,8 @@ class OptionsBlock extends Component {
       updateScore,
       updateClickCounter,
       clickCounter,
+      showGameZone,
+      showInfoZone,
     } = this.props;
     const rows = [];
     const numberOfAnswers = birdNames.length - 1;
@@ -26,6 +28,8 @@ class OptionsBlock extends Component {
           updateScore={updateScore}
           numberOfAnswers={numberOfAnswers}
           clickCounter={clickCounter}
+          showGameZone={showGameZone}
+          showInfoZone={showInfoZone}
         />
       );
     });

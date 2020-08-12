@@ -1,0 +1,13 @@
+.winningPage_main {
+  text-align: center;
+  color: white;
+}
+
+.winningPage_big_text {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.winningPage_small_text {
+    font-size: 24px;
+}

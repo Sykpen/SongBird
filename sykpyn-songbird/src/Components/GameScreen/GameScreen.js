@@ -6,13 +6,22 @@ import OptionsBlock from "../OptionsBlock/OptionsBlock";
 import InfoBlock from "../InfoBlock/InfoBlock";
 import "../Main/main.css";
 import NextButton from "../Button/Button";
+import WinningPage from "../WinningPage/WinningPage";
+import InfoMock from "../InfoMock/InfoMock";
 
 class GameScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = { score: 0, rightAnswerId: null, clickCounter: 0 };
+    this.state = {
+      rightAnswerId: null,
+      clickCounter: 0,
+      showMockGameZone: true,
+      mockImage: "https://i.ibb.co/3fhPwDD/bird.jpg",
+      mockText: "*****",
+      showMockInfoZone: true,
+      infoBlockMockText: "Послушайте плеер. Выберите птицу из списка",
+    };
     this.generateWinningNumber = this.generateWinningNumber.bind(this);
-    this.updateScore = this.updateScore.bind(this);
     this.updateRightAnswerId = this.updateRightAnswerId.bind(this);
     this.updateClickCounter = this.updateClickCounter.bind(this);
     this.refreshClickCounter = this.refreshClickCounter.bind(this);
@@ -38,13 +47,6 @@ class GameScreen extends Component {
     }));
   }
 
-  updateScore(newScore) {
-    this.setState((state) => ({
-      ...state,
-      score: this.state.score + newScore,
-    }));
-  }
-
   updateClickCounter() {
     this.setState((state) => ({
       ...state,
@@ -58,6 +60,7 @@ class GameScreen extends Component {
       clickCounter: 0,
     }));
   }
+
   render() {
     const {
       data,
@@ -65,8 +68,15 @@ class GameScreen extends Component {
       currentPosition,
       updateCurrentStep,
       updatePosition,
+      showMockGameZone,
+      showGameZone,
+      showInfoZone,
+      showMockInfoZone,
+      score,
+      updateScore,
+      gameEnd,
     } = this.props;
-    const { score, clickCounter } = this.state;
+    const { clickCounter, mockImage, mockText } = this.state;
     const birdData = data[currentPosition];
     return (
       <Fragment>
@@ -74,28 +84,40 @@ class GameScreen extends Component {
           <div className="main_wrapper">
             <UpperHeader score={score} />
             <Header questionNumber={questionNumber} />
-            <GameSection
-              image={birdData.image}
-              name={birdData.name}
-              audio={birdData.audio}
-            />
-            <div className="main_flex">
-              <OptionsBlock
-                birdNames={data}
-                updatePosition={updatePosition}
-                rightAnswerId={this.generateWinningNumber()}
-                updateScore={this.updateScore}
-                updateClickCounter={this.updateClickCounter}
-                clickCounter={clickCounter}
-              />
-              <InfoBlock
-                image={birdData.image}
-                name={birdData.name}
-                audio={birdData.audio}
-                species={birdData.species}
-                description={birdData.description}
-              />
-            </div>
+            {gameEnd ? (
+              <WinningPage score={score} />
+            ) : (
+              <Fragment>
+                <GameSection
+                  image={showMockGameZone ? mockImage : birdData.image}
+                  name={showMockGameZone ? mockText : birdData.name}
+                  audio={birdData.audio}
+                />
+                <div className="main_flex">
+                  <OptionsBlock
+                    birdNames={data}
+                    updatePosition={updatePosition}
+                    rightAnswerId={this.generateWinningNumber()}
+                    updateScore={updateScore}
+                    updateClickCounter={this.updateClickCounter}
+                    clickCounter={clickCounter}
+                    showGameZone={showGameZone}
+                    showInfoZone={showInfoZone}
+                  />
+                  {showMockInfoZone ? (
+                    <InfoMock />
+                  ) : (
+                    <InfoBlock
+                      image={birdData.image}
+                      name={birdData.name}
+                      audio={birdData.audio}
+                      species={birdData.species}
+                      description={birdData.description}
+                    />
+                  )}
+                </div>
+              </Fragment>
+            )}
             <NextButton
               updateCurrentStep={updateCurrentStep}
               updateRightAnswerId={this.updateRightAnswerId}
