@@ -7,3 +7,15 @@
   color: white;
   padding: 16px;
 }
+
+@media all and (max-width: 1200px) {
+  .infoMock_main {
+    width: 450px;
+  }
+}
+
+@media all and (max-width: 960px) {
+  .infoMock_main {
+    width: 330px;
+  }
+}
