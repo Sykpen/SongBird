@@ -42,17 +42,24 @@ class OptionsBlockItem extends Component {
         showGameZone,
         showInfoZone,
         rightAnswerIndicate,
+        useSound,
+        enableSound,
       } = this.props;
       let amountOfUpdate = numberOfAnswers - clickCounter;
       updateScore(Math.max(amountOfUpdate, 0));
-      this.playAudio(this.state.winSound);
+      if (useSound) {
+        this.playAudio(this.state.winSound);
+      }
+      enableSound();
       showGameZone();
       showInfoZone();
       rightAnswerIndicate();
       return;
     }
     this.props.showInfoZone();
-    this.playAudio(this.state.loseSound);
+    if (this.props.useSound) {
+      this.playAudio(this.state.loseSound);
+    }
   }
 
   isRightAnswer() {

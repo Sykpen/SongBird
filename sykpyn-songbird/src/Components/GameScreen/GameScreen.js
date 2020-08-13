@@ -20,7 +20,6 @@ class GameScreen extends Component {
     this.updateRightAnswerId = this.updateRightAnswerId.bind(this);
     this.updateClickCounter = this.updateClickCounter.bind(this);
     this.refreshClickCounter = this.refreshClickCounter.bind(this);
-
   }
 
   generateWinningNumber() {
@@ -73,7 +72,10 @@ class GameScreen extends Component {
       gameEnd,
       startNewGame,
       rightAnswerDone,
-      rightAnswerIndicate
+      rightAnswerIndicate,
+      changeSoundUse,
+      useSound,
+      enableSound,
     } = this.props;
     const { clickCounter } = this.state;
     const birdData = data[currentPosition];
@@ -105,6 +107,8 @@ class GameScreen extends Component {
                     showGameZone={showGameZone}
                     showInfoZone={showInfoZone}
                     rightAnswerIndicate={rightAnswerIndicate}
+                    useSound={useSound}
+                    enableSound={enableSound}
                   />
                   {showMockInfoZone ? (
                     <InfoMock />
@@ -127,6 +131,7 @@ class GameScreen extends Component {
               gameEnd={gameEnd}
               startNewGame={startNewGame}
               rightAnswerDone={rightAnswerDone}
+              changeSoundUse={changeSoundUse}
             />
           </div>
         </div>

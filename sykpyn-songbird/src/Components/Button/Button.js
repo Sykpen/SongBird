@@ -7,10 +7,12 @@ class NextButton extends Component {
       updateCurrentStep,
       updateRightAnswerId,
       refreshClickCounter,
+      changeSoundUse,
     } = this.props;
     updateCurrentStep();
     updateRightAnswerId();
     refreshClickCounter();
+    changeSoundUse();
   }
 
   restartGame() {
@@ -19,11 +21,13 @@ class NextButton extends Component {
       updateRightAnswerId,
       refreshClickCounter,
       startNewGame,
+      changeSoundUse,
     } = this.props;
     updateCurrentStep();
     updateRightAnswerId();
     refreshClickCounter();
     startNewGame();
+    changeSoundUse();
   }
   render() {
     const { gameEnd, rightAnswerDone } = this.props;

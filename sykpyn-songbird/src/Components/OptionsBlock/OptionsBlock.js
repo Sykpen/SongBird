@@ -14,6 +14,8 @@ class OptionsBlock extends Component {
       showGameZone,
       showInfoZone,
       rightAnswerIndicate,
+      useSound,
+      enableSound,
     } = this.props;
     const rows = [];
     const numberOfAnswers = birdNames.length - 1;
@@ -32,6 +34,8 @@ class OptionsBlock extends Component {
           showGameZone={showGameZone}
           showInfoZone={showInfoZone}
           rightAnswerIndicate={rightAnswerIndicate}
+          useSound={useSound}
+          enableSound={enableSound}
         />
       );
     });
