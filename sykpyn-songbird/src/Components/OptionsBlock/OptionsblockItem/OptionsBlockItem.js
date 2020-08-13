@@ -5,6 +5,10 @@ class OptionsBlockItem extends Component {
     super(props);
     this.state = {
       rightAnswerId: null,
+      winSound:
+        "http://freesoundeffect.net/sites/default/files/ta-da-strings-fanfare-1-sound-effect-63027955.mp3",
+      loseSound:
+        "http://freesoundeffect.net/sites/default/files/bonus-collect-1-sound-effect-82748414.mp3",
     };
     this.returnNeededColor = this.returnNeededColor.bind(this);
   }
@@ -20,6 +24,10 @@ class OptionsBlockItem extends Component {
     }
   }
 
+  playAudio(url) {
+    new Audio(url).play();
+  }
+
   processAnswer() {
     let color = this.isRightAnswer() ? "green" : "red";
     this.setState((state) => ({
@@ -27,9 +35,22 @@ class OptionsBlockItem extends Component {
       color: color,
     }));
     if (this.isRightAnswer()) {
-      let amountOfUpdate = this.props.numberOfAnswers - this.props.clickCounter;
-      this.props.updateScore(Math.max(amountOfUpdate, 0));
+      const {
+        numberOfAnswers,
+        clickCounter,
+        updateScore,
+        showGameZone,
+        showInfoZone,
+      } = this.props;
+      let amountOfUpdate = numberOfAnswers - clickCounter;
+      updateScore(Math.max(amountOfUpdate, 0));
+      this.playAudio(this.state.winSound);
+      showGameZone();
+      showInfoZone();
+      return;
     }
+    this.props.showInfoZone();
+    this.playAudio(this.state.loseSound);
   }
 
   isRightAnswer() {
