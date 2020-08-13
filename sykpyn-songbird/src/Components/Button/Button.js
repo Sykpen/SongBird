@@ -2,25 +2,28 @@ import React, { Component } from "react";
 import "./Button.css";
 
 class NextButton extends Component {
-  buttonBehaviar() {
+  processNextLevel() {
+    const {
+      updateCurrentStep,
+      updateRightAnswerId,
+      refreshClickCounter,
+    } = this.props;
+    updateCurrentStep();
+    updateRightAnswerId();
+    refreshClickCounter();
+  }
+
+  restartGame() {
     const {
       updateCurrentStep,
       updateRightAnswerId,
       refreshClickCounter,
       startNewGame,
-      gameEnd,
     } = this.props;
-    if (gameEnd) {
-      updateCurrentStep();
-      updateRightAnswerId();
-      refreshClickCounter();
-      startNewGame();
-      return;
-    } else {
-      updateCurrentStep();
-      updateRightAnswerId();
-      refreshClickCounter();
-    }
+    updateCurrentStep();
+    updateRightAnswerId();
+    refreshClickCounter();
+    startNewGame();
   }
   render() {
     const { gameEnd } = this.props;
@@ -28,7 +31,7 @@ class NextButton extends Component {
       <button
         className="button"
         onClick={() => {
-          this.buttonBehaviar();
+          gameEnd ? this.restartGame() : this.processNextLevel();
         }}
       >
         {gameEnd ? "Play Again" : "Next Level"}

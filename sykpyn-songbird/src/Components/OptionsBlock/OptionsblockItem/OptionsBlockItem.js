@@ -49,7 +49,7 @@ class OptionsBlockItem extends Component {
       showInfoZone();
       return;
     }
-    showInfoZone();
+    this.props.showInfoZone();
     this.playAudio(this.state.loseSound);
   }
 
