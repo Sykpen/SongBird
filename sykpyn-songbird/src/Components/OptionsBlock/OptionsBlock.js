@@ -16,7 +16,6 @@ class OptionsBlock extends Component {
     } = this.props;
     const rows = [];
     const numberOfAnswers = birdNames.length - 1;
-    console.log(rightAnswerId)
     birdNames.forEach((element) => {
       rows.push(
         <OptionsBlockItem
