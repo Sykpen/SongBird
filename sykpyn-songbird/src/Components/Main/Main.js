@@ -21,6 +21,7 @@ class Main extends Component {
     this.showGameZone = this.showGameZone.bind(this);
     this.showInfoZone = this.showInfoZone.bind(this);
     this.updateScore = this.updateScore.bind(this);
+    this.startNewGame = this.startNewGame.bind(this);
   }
 
   updateCounter() {
@@ -28,12 +29,6 @@ class Main extends Component {
     if (this.state.questionNumber === 5) {
       newState.questionNumber = 0;
       this.updateGameEndInfo();
-      setTimeout(
-        function (state) {
-          this.setState({ ...state, gameEnd: false, score: 0 });
-        }.bind(this),
-        5000
-      );
     } else {
       newState.questionNumber += 1;
       this.setState((state) => ({
@@ -52,6 +47,14 @@ class Main extends Component {
     this.setState((state) => ({
       ...state,
       score: this.state.score + newScore,
+    }));
+  }
+
+  startNewGame() {
+    this.setState((state) => ({
+      ...state,
+      gameEnd: false,
+      score: 0,
     }));
   }
 
@@ -107,6 +110,7 @@ class Main extends Component {
         showInfoZone={this.showInfoZone}
         score={score}
         updateScore={this.updateScore}
+        startNewGame={this.startNewGame}
       />
     );
   }

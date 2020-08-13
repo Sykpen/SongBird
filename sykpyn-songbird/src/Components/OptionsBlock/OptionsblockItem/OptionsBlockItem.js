@@ -35,13 +35,21 @@ class OptionsBlockItem extends Component {
       color: color,
     }));
     if (this.isRightAnswer()) {
-      let amountOfUpdate = this.props.numberOfAnswers - this.props.clickCounter;
-      this.props.updateScore(Math.max(amountOfUpdate, 0));
+      const {
+        numberOfAnswers,
+        clickCounter,
+        updateScore,
+        showGameZone,
+        showInfoZone,
+      } = this.props;
+      let amountOfUpdate = numberOfAnswers - clickCounter;
+      updateScore(Math.max(amountOfUpdate, 0));
       this.playAudio(this.state.winSound);
-      this.props.showGameZone();
+      showGameZone();
+      showInfoZone();
       return;
     }
-    this.props.showInfoZone();
+    showInfoZone();
     this.playAudio(this.state.loseSound);
   }
 

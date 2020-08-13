@@ -2,22 +2,36 @@ import React, { Component } from "react";
 import "./Button.css";
 
 class NextButton extends Component {
-  render() {
+  buttonBehaviar() {
     const {
       updateCurrentStep,
       updateRightAnswerId,
       refreshClickCounter,
+      startNewGame,
+      gameEnd,
     } = this.props;
+    if (gameEnd) {
+      updateCurrentStep();
+      updateRightAnswerId();
+      refreshClickCounter();
+      startNewGame();
+      return;
+    } else {
+      updateCurrentStep();
+      updateRightAnswerId();
+      refreshClickCounter();
+    }
+  }
+  render() {
+    const { gameEnd } = this.props;
     return (
       <button
         className="button"
         onClick={() => {
-          updateCurrentStep();
-          updateRightAnswerId();
-          refreshClickCounter();
+          this.buttonBehaviar();
         }}
       >
-        Next Level
+        {gameEnd ? "Play Again" : "Next Level"}
       </button>
     );
   }

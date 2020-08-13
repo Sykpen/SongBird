@@ -15,11 +15,6 @@ class GameScreen extends Component {
     this.state = {
       rightAnswerId: null,
       clickCounter: 0,
-      showMockGameZone: true,
-      mockImage: "https://i.ibb.co/3fhPwDD/bird.jpg",
-      mockText: "*****",
-      showMockInfoZone: true,
-      infoBlockMockText: "Послушайте плеер. Выберите птицу из списка",
     };
     this.generateWinningNumber = this.generateWinningNumber.bind(this);
     this.updateRightAnswerId = this.updateRightAnswerId.bind(this);
@@ -75,9 +70,12 @@ class GameScreen extends Component {
       score,
       updateScore,
       gameEnd,
+      startNewGame,
     } = this.props;
-    const { clickCounter, mockImage, mockText } = this.state;
+    const { clickCounter } = this.state;
     const birdData = data[currentPosition];
+    const mockImage = "https://i.ibb.co/3fhPwDD/bird.jpg";
+    const mockText = "*****";
     return (
       <Fragment>
         <div className="main_container">
@@ -122,6 +120,8 @@ class GameScreen extends Component {
               updateCurrentStep={updateCurrentStep}
               updateRightAnswerId={this.updateRightAnswerId}
               refreshClickCounter={this.refreshClickCounter}
+              gameEnd={gameEnd}
+              startNewGame={startNewGame}
             />
           </div>
         </div>
