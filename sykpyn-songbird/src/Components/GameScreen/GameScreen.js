@@ -20,6 +20,7 @@ class GameScreen extends Component {
     this.updateRightAnswerId = this.updateRightAnswerId.bind(this);
     this.updateClickCounter = this.updateClickCounter.bind(this);
     this.refreshClickCounter = this.refreshClickCounter.bind(this);
+
   }
 
   generateWinningNumber() {
@@ -71,6 +72,8 @@ class GameScreen extends Component {
       updateScore,
       gameEnd,
       startNewGame,
+      rightAnswerDone,
+      rightAnswerIndicate
     } = this.props;
     const { clickCounter } = this.state;
     const birdData = data[currentPosition];
@@ -101,6 +104,7 @@ class GameScreen extends Component {
                     clickCounter={clickCounter}
                     showGameZone={showGameZone}
                     showInfoZone={showInfoZone}
+                    rightAnswerIndicate={rightAnswerIndicate}
                   />
                   {showMockInfoZone ? (
                     <InfoMock />
@@ -122,6 +126,7 @@ class GameScreen extends Component {
               refreshClickCounter={this.refreshClickCounter}
               gameEnd={gameEnd}
               startNewGame={startNewGame}
+              rightAnswerDone={rightAnswerDone}
             />
           </div>
         </div>

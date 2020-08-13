@@ -26,10 +26,10 @@ class NextButton extends Component {
     startNewGame();
   }
   render() {
-    const { gameEnd } = this.props;
+    const { gameEnd, rightAnswerDone } = this.props;
     return (
       <button
-        className="button"
+        className={rightAnswerDone ? "button" : "button_unclickable"}
         onClick={() => {
           gameEnd ? this.restartGame() : this.processNextLevel();
         }}

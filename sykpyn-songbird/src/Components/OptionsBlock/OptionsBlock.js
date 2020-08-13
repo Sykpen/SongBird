@@ -13,6 +13,7 @@ class OptionsBlock extends Component {
       clickCounter,
       showGameZone,
       showInfoZone,
+      rightAnswerIndicate,
     } = this.props;
     const rows = [];
     const numberOfAnswers = birdNames.length - 1;
@@ -30,6 +31,7 @@ class OptionsBlock extends Component {
           clickCounter={clickCounter}
           showGameZone={showGameZone}
           showInfoZone={showInfoZone}
+          rightAnswerIndicate={rightAnswerIndicate}
         />
       );
     });

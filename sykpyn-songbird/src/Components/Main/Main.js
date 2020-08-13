@@ -14,6 +14,7 @@ class Main extends Component {
       showMockGameZone: true,
       showMockInfoZone: true,
       score: 0,
+      rightAnswerDone: false,
     };
     this.updateCounter = this.updateCounter.bind(this);
     this.updatePosition = this.updatePosition.bind(this);
@@ -22,6 +23,7 @@ class Main extends Component {
     this.showInfoZone = this.showInfoZone.bind(this);
     this.updateScore = this.updateScore.bind(this);
     this.startNewGame = this.startNewGame.bind(this);
+    this.rightAnswerIndicate = this.rightAnswerIndicate.bind(this);
   }
 
   updateCounter() {
@@ -35,11 +37,19 @@ class Main extends Component {
         ...state,
         showMockGameZone: true,
         showMockInfoZone: true,
+        rightAnswerDone: false,
       }));
     }
     this.setState((state) => ({
       ...state,
       questionNumber: newState.questionNumber,
+    }));
+  }
+
+  rightAnswerIndicate() {
+    this.setState((state) => ({
+      ...state,
+      rightAnswerDone: true,
     }));
   }
 
@@ -94,6 +104,7 @@ class Main extends Component {
       showMockGameZone,
       showMockInfoZone,
       score,
+      rightAnswerDone,
     } = this.state;
     return (
       <GameScreen
@@ -111,6 +122,8 @@ class Main extends Component {
         score={score}
         updateScore={this.updateScore}
         startNewGame={this.startNewGame}
+        rightAnswerIndicate={this.rightAnswerIndicate}
+        rightAnswerDone={rightAnswerDone}
       />
     );
   }

@@ -41,12 +41,14 @@ class OptionsBlockItem extends Component {
         updateScore,
         showGameZone,
         showInfoZone,
+        rightAnswerIndicate,
       } = this.props;
       let amountOfUpdate = numberOfAnswers - clickCounter;
       updateScore(Math.max(amountOfUpdate, 0));
       this.playAudio(this.state.winSound);
       showGameZone();
       showInfoZone();
+      rightAnswerIndicate();
       return;
     }
     this.props.showInfoZone();
