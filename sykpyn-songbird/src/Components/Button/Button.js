@@ -30,10 +30,10 @@ class NextButton extends Component {
     changeSoundUse();
   }
   render() {
-    const { gameEnd, rightAnswerDone } = this.props;
+    const { gameEnd, rightAnswerChosen } = this.props;
     return (
       <button
-        className={rightAnswerDone ? "button" : "button_unclickable"}
+        className={rightAnswerChosen ? "button" : "button_unclickable"}
         onClick={() => {
           gameEnd ? this.restartGame() : this.processNextLevel();
         }}

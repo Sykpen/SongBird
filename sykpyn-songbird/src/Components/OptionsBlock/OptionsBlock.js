@@ -13,7 +13,7 @@ class OptionsBlock extends Component {
       clickCounter,
       showGameZone,
       showInfoZone,
-      rightAnswerIndicate,
+      indicateRightAnswer,
       useSound,
       enableSound,
     } = this.props;
@@ -33,7 +33,7 @@ class OptionsBlock extends Component {
           clickCounter={clickCounter}
           showGameZone={showGameZone}
           showInfoZone={showInfoZone}
-          rightAnswerIndicate={rightAnswerIndicate}
+          indicateRightAnswer={indicateRightAnswer}
           useSound={useSound}
           enableSound={enableSound}
         />

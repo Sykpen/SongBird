@@ -8,6 +8,7 @@ import "../Main/main.css";
 import NextButton from "../Button/Button";
 import WinningPage from "../WinningPage/WinningPage";
 import InfoMock from "../InfoMock/InfoMock";
+import { MOCK_IMAGE, MOCK_TEXT } from "../../data/constants";
 
 class GameScreen extends Component {
   constructor(props) {
@@ -71,16 +72,14 @@ class GameScreen extends Component {
       updateScore,
       gameEnd,
       startNewGame,
-      rightAnswerDone,
-      rightAnswerIndicate,
+      rightAnswerChosen,
+      indicateRightAnswer,
       changeSoundUse,
       useSound,
       enableSound,
     } = this.props;
     const { clickCounter } = this.state;
     const birdData = data[currentPosition];
-    const mockImage = "https://i.ibb.co/3fhPwDD/bird.jpg";
-    const mockText = "*****";
     return (
       <Fragment>
         <div className="main_container">
@@ -92,8 +91,8 @@ class GameScreen extends Component {
             ) : (
               <Fragment>
                 <GameSection
-                  image={showMockGameZone ? mockImage : birdData.image}
-                  name={showMockGameZone ? mockText : birdData.name}
+                  image={showMockGameZone ? MOCK_IMAGE : birdData.image}
+                  name={showMockGameZone ? MOCK_TEXT : birdData.name}
                   audio={birdData.audio}
                 />
                 <div className="main_flex">
@@ -106,7 +105,7 @@ class GameScreen extends Component {
                     clickCounter={clickCounter}
                     showGameZone={showGameZone}
                     showInfoZone={showInfoZone}
-                    rightAnswerIndicate={rightAnswerIndicate}
+                    indicateRightAnswer={indicateRightAnswer}
                     useSound={useSound}
                     enableSound={enableSound}
                   />
@@ -130,7 +129,7 @@ class GameScreen extends Component {
               refreshClickCounter={this.refreshClickCounter}
               gameEnd={gameEnd}
               startNewGame={startNewGame}
-              rightAnswerDone={rightAnswerDone}
+              rightAnswerChosen={rightAnswerChosen}
               changeSoundUse={changeSoundUse}
             />
           </div>
