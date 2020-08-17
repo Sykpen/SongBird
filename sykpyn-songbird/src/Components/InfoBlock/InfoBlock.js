@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 import "./InfoBlock.css";
 
 class InfoBlock extends Component {
@@ -8,16 +10,16 @@ class InfoBlock extends Component {
       <div className="infoBlock_main">
         <div className="infoBlock_flex">
           <div>
-            <img className="infoBlock_img" src={image} alt='Птица'></img>
+            <img className="infoBlock_img" src={image} alt="Птица"></img>
           </div>
           <div className="infoBlock_main_item_second">
             <p className="infoBlock_bird_specias">{name}</p>
             <p className="infoBlock_bird_name">{species}</p>
-            <audio
-              controls
-              className="infoBlock_audio"
+            <AudioPlayer
+              className="rhap_container_second"
               src={audio}
-            ></audio>
+              autoPlayAfterSrcChange={false}
+            />
           </div>
         </div>
         <p>{description}</p>

@@ -64,7 +64,6 @@ class GameScreen extends Component {
       currentPosition,
       updateCurrentStep,
       updatePosition,
-      showMockGameZone,
       showGameZone,
       showInfoZone,
       showMockInfoZone,
@@ -78,8 +77,9 @@ class GameScreen extends Component {
       useSound,
       enableSound,
     } = this.props;
-    const { clickCounter } = this.state;
+    const { clickCounter, rightAnswerId } = this.state;
     const birdData = data[currentPosition];
+    let winBird = data.filter((bird) => bird.id === rightAnswerId)[0];
     return (
       <Fragment>
         <div className="main_container">
@@ -91,15 +91,15 @@ class GameScreen extends Component {
             ) : (
               <Fragment>
                 <GameSection
-                  image={showMockGameZone ? MOCK_IMAGE : birdData.image}
-                  name={showMockGameZone ? MOCK_TEXT : birdData.name}
-                  audio={birdData.audio}
+                  image={rightAnswerChosen ? winBird.image : MOCK_IMAGE}
+                  name={rightAnswerChosen ? winBird.name : MOCK_TEXT}
+                  audio={winBird && winBird.audio}
                 />
                 <div className="main_flex">
                   <OptionsBlock
                     birdNames={data}
                     updatePosition={updatePosition}
-                    rightAnswerId={this.generateWinningNumber()}
+                    rightAnswerId={rightAnswerId}
                     updateScore={updateScore}
                     updateClickCounter={this.updateClickCounter}
                     clickCounter={clickCounter}
