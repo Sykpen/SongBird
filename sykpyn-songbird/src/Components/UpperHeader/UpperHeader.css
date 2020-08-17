@@ -1,0 +1,19 @@
+.upper_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 197px;
+  height: 53px;
+  background-image: url("../../img/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.score {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}

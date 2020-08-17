@@ -1,0 +1,33 @@
+.winningPage_main {
+  text-align: center;
+  color: white;
+}
+
+.winningPage_big_text {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.winningPage_small_text {
+  font-size: 24px;
+}
+
+.clean_win_show {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: auto;
+  height: auto;
+}
+
+.clean_win_hide {
+  display: none;
+}
+
+@media all and (max-width: 740px) {
+  .clean_win_show {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 310px;
+    height: 210px;
+  }
+}

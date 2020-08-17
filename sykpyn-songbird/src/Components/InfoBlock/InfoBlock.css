@@ -1,0 +1,71 @@
+.infoBlock_main {
+  box-sizing: border-box;
+  width: 540px;
+  height: auto;
+  background-color: #303030;
+  border: 2px solid #444444;
+  color: white;
+  padding: 16px;
+}
+
+.infoBlock_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.infoBlock_img {
+  width: 200px;
+  height: 155px;
+}
+
+.infoBlock_bird_name {
+  font-size: 18px;
+  border-top: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+  margin-bottom: 10px;
+}
+
+.infoBlock_bird_specias {
+  font-size: 24px;
+}
+
+.infoBlock_audio {
+  width: 265px;
+}
+
+.rhap_container_second {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: inherit;
+  width: auto;
+  padding: 10px 15px;
+  background-color: #303030;
+  box-shadow: none;
+}
+
+@media all and (max-width: 1200px) {
+  .infoBlock_main {
+    width: 450px;
+  }
+}
+
+@media all and (max-width: 960px) {
+  .infoBlock_main {
+    width: 330px;
+  }
+}
+
+@media all and (max-width: 740px) {
+  .infoBlock_main {
+    width: 510px;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .infoBlock_flex {
+    justify-content: center;
+  }
+}
