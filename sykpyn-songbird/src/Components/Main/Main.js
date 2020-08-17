@@ -14,6 +14,8 @@ class Main extends Component {
       showMockGameZone: true,
       showMockInfoZone: true,
       score: 0,
+      rightAnswerChosen: false,
+      useSound: true,
     };
     this.updateCounter = this.updateCounter.bind(this);
     this.updatePosition = this.updatePosition.bind(this);
@@ -22,6 +24,9 @@ class Main extends Component {
     this.showInfoZone = this.showInfoZone.bind(this);
     this.updateScore = this.updateScore.bind(this);
     this.startNewGame = this.startNewGame.bind(this);
+    this.indicateRightAnswer = this.indicateRightAnswer.bind(this);
+    this.changeSoundUse = this.changeSoundUse.bind(this);
+    this.enableSound = this.enableSound.bind(this);
   }
 
   updateCounter() {
@@ -35,11 +40,33 @@ class Main extends Component {
         ...state,
         showMockGameZone: true,
         showMockInfoZone: true,
+        rightAnswerChosen: false,
       }));
     }
     this.setState((state) => ({
       ...state,
       questionNumber: newState.questionNumber,
+    }));
+  }
+
+  changeSoundUse() {
+    this.setState((state) => ({
+      ...state,
+      useSound: true,
+    }));
+  }
+
+  enableSound() {
+    this.setState((state) => ({
+      ...state,
+      useSound: false,
+    }));
+  }
+
+  indicateRightAnswer() {
+    this.setState((state) => ({
+      ...state,
+      rightAnswerChosen: true,
     }));
   }
 
@@ -94,6 +121,8 @@ class Main extends Component {
       showMockGameZone,
       showMockInfoZone,
       score,
+      rightAnswerChosen,
+      useSound,
     } = this.state;
     return (
       <GameScreen
@@ -111,6 +140,11 @@ class Main extends Component {
         score={score}
         updateScore={this.updateScore}
         startNewGame={this.startNewGame}
+        indicateRightAnswer={this.indicateRightAnswer}
+        rightAnswerChosen={rightAnswerChosen}
+        changeSoundUse={this.changeSoundUse}
+        useSound={useSound}
+        enableSound={this.enableSound}
       />
     );
   }

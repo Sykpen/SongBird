@@ -44,13 +44,16 @@
   .infoBlock_main {
     width: 330px;
   }
-  .infoBlock_flex {
-    justify-content: center;
-  }
 }
 
 @media all and (max-width: 740px) {
   .infoBlock_main {
     width: 510px;
+  }
+}
+
+@media all and (max-width: 530px) {
+  .infoBlock_flex {
+    justify-content: center;
   }
 }

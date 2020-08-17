@@ -1,14 +1,11 @@
 import React, { Component } from "react";
+import { WIN_SOUND, LOSE_SOUND } from "../../../data/constants";
 
 class OptionsBlockItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
       rightAnswerId: null,
-      winSound:
-        "http://freesoundeffect.net/sites/default/files/ta-da-strings-fanfare-1-sound-effect-63027955.mp3",
-      loseSound:
-        "http://freesoundeffect.net/sites/default/files/bonus-collect-1-sound-effect-82748414.mp3",
     };
     this.returnNeededColor = this.returnNeededColor.bind(this);
   }
@@ -41,16 +38,25 @@ class OptionsBlockItem extends Component {
         updateScore,
         showGameZone,
         showInfoZone,
+        indicateRightAnswer,
+        useSound,
+        enableSound,
       } = this.props;
       let amountOfUpdate = numberOfAnswers - clickCounter;
       updateScore(Math.max(amountOfUpdate, 0));
-      this.playAudio(this.state.winSound);
+      if (useSound) {
+        this.playAudio(WIN_SOUND);
+      }
+      enableSound();
       showGameZone();
       showInfoZone();
+      indicateRightAnswer();
       return;
     }
     this.props.showInfoZone();
-    this.playAudio(this.state.loseSound);
+    if (this.props.useSound) {
+      this.playAudio(LOSE_SOUND);
+    }
   }
 
   isRightAnswer() {
