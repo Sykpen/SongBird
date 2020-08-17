@@ -36,15 +36,12 @@ class OptionsBlock extends Component {
           indicateRightAnswer={indicateRightAnswer}
           useSound={useSound}
           enableSound={enableSound}
+          updateClickCounter={updateClickCounter}
         />
       );
     });
 
-    return (
-      <div className="options_block_main" onClick={updateClickCounter}>
-        {rows}
-      </div>
-    );
+    return <div className="options_block_main">{rows}</div>;
   }
 }
 

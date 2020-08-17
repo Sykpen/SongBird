@@ -5,7 +5,7 @@ class OptionsBlockItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rightAnswerId: null,
+      clickable: true,
     };
     this.returnNeededColor = this.returnNeededColor.bind(this);
   }
@@ -51,20 +51,36 @@ class OptionsBlockItem extends Component {
       showGameZone();
       showInfoZone();
       indicateRightAnswer();
+      this.setState((state) => ({
+        ...state,
+        clickable: true,
+      }));
       return;
     }
     this.props.showInfoZone();
+    this.setState((state) => ({
+      ...state,
+      clickable: false,
+    }));
+    }
     if (this.props.useSound) {
       this.playAudio(LOSE_SOUND);
     }
   }
 
   isRightAnswer() {
-    return this.props.birdId === this.state.rightAnswerId;
+    return this.props.birdId === this.props.rightAnswerId;
   }
 
   render() {
-    const { birdName, updatePosition, position, birdId } = this.props;
+    const {
+      birdName,
+      updatePosition,
+      position,
+      birdId,
+      updateClickCounter,
+    } = this.props;
+    const { clickable } = this.state;
     if (this.state.rightAnswerId === null) {
       this.setState((state) => ({
         ...state,
@@ -73,11 +89,16 @@ class OptionsBlockItem extends Component {
     }
     return (
       <div
-        className="options_block_main_item"
+        className={
+          clickable
+            ? "options_block_main_item"
+            : "options_block_main_item unclickable"
+        }
         onClick={() => {
           this.processAnswer();
           this.returnNeededColor();
           updatePosition(position);
+          updateClickCounter();
         }}
       >
         <div id={birdId} className={this.returnNeededColor()}></div>

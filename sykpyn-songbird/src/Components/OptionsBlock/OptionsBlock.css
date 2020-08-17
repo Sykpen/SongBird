@@ -21,6 +21,10 @@
   margin: -2px 0;
 }
 
+.unclickable {
+  pointer-events: none;
+}
+
 .circle {
   margin-left: 20px;
   width: 10px;

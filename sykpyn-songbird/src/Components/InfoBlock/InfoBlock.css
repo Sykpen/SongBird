@@ -34,6 +34,18 @@
   width: 265px;
 }
 
+.rhap_container_second {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: inherit;
+  width: auto;
+  padding: 10px 15px;
+  background-color: #303030;
+  box-shadow: none;
+}
+
 @media all and (max-width: 1200px) {
   .infoBlock_main {
     width: 450px;
