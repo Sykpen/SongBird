@@ -62,6 +62,7 @@ class OptionsBlockItem extends Component {
       ...state,
       clickable: false,
     }));
+    }
     if (this.props.useSound) {
       this.playAudio(LOSE_SOUND);
     }
